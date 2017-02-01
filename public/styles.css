@@ -10,18 +10,38 @@ h1 {
   font-size: 40px;
 }
 
+#log-in-button, #log-out-button {
+  margin: 20px auto;
+}
+
+#log-out-button {
+  background-color: rgb(230, 106, 102);
+}
+
 button:hover {
   background-color: #FFF;
   cursor: pointer;
 }
 
+#log-out-button:hover {
+  background-color: rgb(236, 175, 164);
+}
+
 #user-notification {
+  display: inline-block;
   font-size: 26px;
   font-style: italic;
-  margin: 36px auto;
+  margin: 36px 45px;
 }
 
 #create-question-wrapper h2 {
   font-size: 36px;
-  margin: 30px auto;
+  margin: 70px auto;
+}
+
+#user-photo-main {
+  border-radius: 50%;
+  height: 100px;
+  margin: 0 30px;
+  width: 100px;
 }
