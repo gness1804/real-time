@@ -132,7 +132,7 @@ app.get('/question', (request, response) => {
       <script src="/socket.io/socket.io.js"></script>
       <script src="authentication.js"></script>
       <script src="display.js"></script>
-      <script src="client.js"></script>
+      <script src="core-functionality.js"></script>
       </body>
       </body>
     </html>
