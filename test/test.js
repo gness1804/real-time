@@ -1,5 +1,5 @@
 'use strict';
-var chai = require('chai');
+const chai = require('chai');
 const assert = require('assert');
 const request = require('supertest');
 const express = require('express');
@@ -15,7 +15,7 @@ describe('GET /', () => {
     request(app)
       .get('/')
       .end(function(error, result) {
-        res.should.have.status(200);
+        result.should.have.status(200);
         done();
       });
   });
@@ -24,7 +24,7 @@ describe('GET /', () => {
     request(app)
       .get('/foo')
       .end(function(error, result) {
-        res.should.have.status(404);
+        result.should.have.status(404);
         done();
       });
   });
@@ -35,7 +35,7 @@ describe('/question', () => {
     request(app)
       .get('/question')
       .end(function(error, result) {
-        res.should.have.status(200);
+        result.should.have.status(200);
         done();
       });
   });
@@ -44,7 +44,26 @@ describe('/question', () => {
     request(app)
       .get('/question')
       .end(function(error, result) {
-        res.should.be.a('string');
+        result.should.be.a('string');
+        done();
+      });
+  });
+
+  it('should add a new question when the post request is made', () => {
+    request(app)
+      .post('/question')
+      .send({
+        questionId: 74874912791,
+        title: 'Who is Bill Clinton?',
+        firstChoice: 'A former president of the United States.',
+        secondChoice: 'A Turing student.',
+        thirdChoice: 'A famous football star.',
+        fourthChoice: 'Batman.',
+        userId: 878391738831,
+      })
+      .end(function(error, result) {
+        result.should.have.status(200);
+        result.should.be.json;
         done();
       });
   });
