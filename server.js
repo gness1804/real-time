@@ -52,7 +52,6 @@ app.get('/login', (request, response) => {
   });
 });
 
-//put the "authenticate" back in here as the second argument!
 app.post('/question', (request, response) => {
   const question = request.body;
 
