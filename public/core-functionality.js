@@ -1,8 +1,4 @@
-$('#submit-question').on("click", () => {
-  if (!questionTitle.val() || !firstChoiceTitle.val() || !secondChoiceTitle.val() || !thirdChoiceTitle.val() || !fourthChoiceTitle.val()) {
-    document.querySelector('#user-notification').innerText = 'Please enter in valid values for all fields.'
-    return;
-  }
+const postNewQuestion = () => {
   axios.post('/question', {
     questionId: Date.now(),
     title: questionTitle.val(),
@@ -13,6 +9,18 @@ $('#submit-question').on("click", () => {
     userId: profile.userId,
   });
   document.querySelector('#user-notification').innerText = 'You have successfully submitted a question.'
+}
+
+$('#submit-question').on("click", () => {
+  const oneOrMoreFieldIsEmpty = !questionTitle.val() || !firstChoiceTitle.val() || !secondChoiceTitle.val() || !thirdChoiceTitle.val() || !fourthChoiceTitle.val();
+
+  if (oneOrMoreFieldIsEmpty) {
+    document.querySelector('#user-notification').innerText = 'Please enter in valid values for all fields.'
+    return;
+  }
+
+  postNewQuestion();
+
 });
 
 socket.on('usersCount', (count) => {
