@@ -66,21 +66,6 @@ const displayTallyOfVoteChoices = (votes) => {
   }
 }
 
-// const countVotes = (votes) => {
-//   const voteCount = {
-//       A: 0,
-//       B: 0,
-//       C: 0,
-//       D: 0
-//   };
-//
-//   for (let vote in votes) {
-//     voteCount[votes[vote]]++
-//   }
-//
-//   return voteCount;
-// }
-
 socket.on('allVotes', (votes) => {
   const voteCount = votes.length;
   document.querySelector('#vote-count-total-display').innerText = `Total votes: ${votes.length}`
