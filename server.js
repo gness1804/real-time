@@ -120,8 +120,9 @@ app.get('/question', (request, response) => {
         <button id="${app.locals.question.choices[3].choiceId}" class="answer-button">${app.locals.question.choices[3].choiceName}</button>
 
         <p id="users-count-display"></p>
-        <section id="vote-count-display"></section>
+        <section id="vote-count-total-display"></section>
         <section id="vote-each-user-display"></section>
+        <section id="vote-tally-display"></section>
 
         </section>
 

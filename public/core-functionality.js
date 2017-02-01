@@ -57,7 +57,13 @@ const displayTallyOfVoteChoices = (votes) => {
   for (var i = 0; i < votes.length; i++) {
     votesObj[votes[i].vote] = votesObj[votes[i].vote] + 1;
   }
-  console.log(votesObj);
+  for (var key in votesObj) {
+    if (votesObj.hasOwnProperty(key)) {
+      $('#vote-tally-display').append(`
+        <p>${key}: ${votesObj[key]}</p>
+      `)
+    }
+  }
 }
 
 // const countVotes = (votes) => {
@@ -77,8 +83,9 @@ const displayTallyOfVoteChoices = (votes) => {
 
 socket.on('allVotes', (votes) => {
   const voteCount = votes.length;
-  document.querySelector('#vote-count-display').innerText = `Total votes: ${votes.length}`
+  document.querySelector('#vote-count-total-display').innerText = `Total votes: ${votes.length}`
   document.querySelector('#vote-each-user-display').innerHTML = '';
+  document.querySelector('#vote-tally-display').innerHTML = '';
   displayVotesOnPage(votes);
   displayTallyOfVoteChoices(votes);
 });
