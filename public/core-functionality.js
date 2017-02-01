@@ -49,16 +49,18 @@ const displayVotesOnPage = (votes) => {
   });
 }
 
+const displayTallyOfVoteChoices = (votes) => {
+  let voteCount = [];
+  votes.forEach((vote) => {
+    voteCount.push(vote.vote)
+  });
+  console.log(voteCount);
+}
+
 socket.on('allVotes', (votes) => {
   const voteCount = votes.length;
   document.querySelector('#vote-count-display').innerText = `Total votes: ${votes.length}`
-  //need tally of total of each choice selected
   document.querySelector('#vote-each-user-display').innerHTML = '';
   displayVotesOnPage(votes);
-  // votes.forEach((vote) => {
-  //   $('#vote-each-user-display').append(`
-  //     <img src="${vote.githubPhoto}"/>
-  //     <p>vote: ${vote.vote}</p>
-  //   `);
-  // });
+  displayTallyOfVoteChoices(votes);
 });
