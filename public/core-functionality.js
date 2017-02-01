@@ -12,6 +12,7 @@ const postNewQuestion = () => {
 }
 
 $('#submit-question').on("click", () => {
+
   const oneOrMoreFieldIsEmpty = !questionTitle.val() || !firstChoiceTitle.val() || !secondChoiceTitle.val() || !thirdChoiceTitle.val() || !fourthChoiceTitle.val();
 
   if (oneOrMoreFieldIsEmpty) {
@@ -39,15 +40,25 @@ for (let i = 0; i < buttons.length; i++) {
   });
 }
 
-socket.on('allVotes', (votes) => {
-  let voteCount = votes.length;
-  document.querySelector('#vote-count-display').innerText = `Total votes: ${votes.length}`
-  //need tally of total of each choice selected
-  document.querySelector('#vote-each-user-display').innerHTML = '';
+const displayVotesOnPage = (votes) => {
   votes.forEach((vote) => {
     $('#vote-each-user-display').append(`
       <img src="${vote.githubPhoto}"/>
       <p>vote: ${vote.vote}</p>
     `);
   });
+}
+
+socket.on('allVotes', (votes) => {
+  const voteCount = votes.length;
+  document.querySelector('#vote-count-display').innerText = `Total votes: ${votes.length}`
+  //need tally of total of each choice selected
+  document.querySelector('#vote-each-user-display').innerHTML = '';
+  displayVotesOnPage(votes);
+  // votes.forEach((vote) => {
+  //   $('#vote-each-user-display').append(`
+  //     <img src="${vote.githubPhoto}"/>
+  //     <p>vote: ${vote.vote}</p>
+  //   `);
+  // });
 });
