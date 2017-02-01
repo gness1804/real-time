@@ -53,5 +53,3 @@ jspm_packages
 .env
 
 notes.md
-
-public/authentication.js
