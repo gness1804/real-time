@@ -39,4 +39,13 @@ describe('/question', () => {
         done();
       });
   });
+
+  it('response should be a string', () => {
+    request(app)
+      .get('/question')
+      .end(function(error, result) {
+        res.should.be.a('string');
+        done();
+      });
+  });
 });
