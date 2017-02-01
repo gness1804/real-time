@@ -52,8 +52,10 @@ for (let i = 0; i < buttons.length; i++) {
 const displayVotesOnPage = (votes) => {
   votes.forEach((vote) => {
     $('#vote-each-user-display').append(`
-      <img src="${vote.githubPhoto}"/>
-      <p>vote: ${vote.vote}</p>
+      <div class="each-vote">
+        <img src="${vote.githubPhoto}"/>
+        <p>vote: ${vote.vote}</p>
+      </div>
     `);
   });
 }
@@ -69,7 +71,7 @@ const displayTallyOfVoteChoices = (votes) => {
   for (var key in votesObj) {
     if (votesObj.hasOwnProperty(key)) {
       $('#vote-tally-display').append(`
-        <p>${key}: ${votesObj[key]}</p>
+        <p>Total votes for ${key}: ${votesObj[key]}</p>
       `)
     }
   }

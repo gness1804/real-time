@@ -106,8 +106,6 @@ app.get('/question', (request, response) => {
 
         <section id="question-container">
 
-        <h3>Answer The Question!</h3>
-
         <p id="user-notification"></p>
 
         <h2>${app.locals.question.title}</h2>
