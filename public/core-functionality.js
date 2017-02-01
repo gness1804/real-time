@@ -11,6 +11,14 @@ const postNewQuestion = () => {
   document.querySelector('#user-notification').innerText = 'You have successfully submitted a question.'
 }
 
+const clearInputFields = () => {
+  document.querySelector('#question-title-input').value = '';
+  document.querySelector('#first-choice-input').value = '';
+  document.querySelector('#second-choice-input').value = '';
+  document.querySelector('#third-choice-input').value = '';
+  document.querySelector('#fourth-choice-input').value = '';
+}
+
 $('#submit-question').on("click", () => {
 
   const oneOrMoreFieldIsEmpty = !questionTitle.val() || !firstChoiceTitle.val() || !secondChoiceTitle.val() || !thirdChoiceTitle.val() || !fourthChoiceTitle.val();
@@ -21,6 +29,7 @@ $('#submit-question').on("click", () => {
   }
 
   postNewQuestion();
+  clearInputFields();
 
 });
 

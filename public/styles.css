@@ -36,7 +36,7 @@ button:hover {
 
 #create-question-wrapper h2 {
   font-size: 36px;
-  margin: 70px auto;
+  margin: 50px auto;
 }
 
 #user-photo-main {
@@ -44,4 +44,9 @@ button:hover {
   height: 100px;
   margin: 0 30px;
   width: 100px;
+}
+
+input {
+  display: block;
+  margin: 15px auto;
 }
