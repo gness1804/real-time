@@ -32,7 +32,7 @@ app.locals.question = {
   questionId: null,
   title: '',
   choices: [],
-  creatorId: null,
+  // creatorId: null,
   responses: [],
 };
 
@@ -75,7 +75,7 @@ app.post('/question', (request, response) => {
       choiceName: request.body.fourthChoice,
     }
   );
-  app.locals.question.creatorId = request.body.userId;
+  // app.locals.question.creatorId = request.body.userId;
 
   response.json({
     question: app.locals.question,

@@ -6,7 +6,6 @@ const postNewQuestion = () => {
     secondChoice: secondChoiceTitle.val(),
     thirdChoice: thirdChoiceTitle.val(),
     fourthChoice: fourthChoiceTitle.val(),
-    userId: profile.userId,
   });
   document.querySelector('#user-notification').innerText = 'You have successfully submitted a question.'
 }
