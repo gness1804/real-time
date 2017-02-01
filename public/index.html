@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" style="text/css" href="styles.css"/>
+    <link rel="stylesheet" style="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css"/>
+    <title>Real Time</title>
+  </head>
+  <body>
+    <h1>Real Time: Polling Done Right</h1>
+
+    <h3 id="pre-login-headline">Log in to Submit a Question</h3>
+
+    <button
+    id="log-in-button">Log In</button>
+
+    <button
+    id="log-out-button">Log Out</button>
+
+    <section id="create-question-wrapper">
+      <p id="user-notification"></p>
+      <h2>Create A Poll</h2>
+
+      <img id="user-photo-main"/>
+
+      <input
+      type="text"
+      id="question-title-input"
+      placeholder="Question Title"
+      />
+
+      <input
+      type="text"
+      id="first-choice-input"
+      placeholder="First Choice"
+      />
+
+      <input
+      type="text"
+      id="second-choice-input"
+      placeholder="Second Choice"
+      />
+
+      <input
+      type="text"
+      id="third-choice-input"
+      placeholder="Third Choice"
+      />
+
+      <input
+      type="text"
+      id="fourth-choice-input"
+      placeholder="Fourth Choice"
+      />
+
+      <button
+      id="submit-question"
+      >
+      Submit Question
+      </button>
+
+    </section>
+
+
+  <script src="https://cdn.auth0.com/js/lock/10.8/lock.min.js"></script>
+  <script src="https://cdn.auth0.com/js/lock/10.9.1/lock.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="authentication.js"></script>
+  <script src="display.js"></script>
+  <script src="client.js"></script>
+  </body>
+</html>
