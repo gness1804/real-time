@@ -11,10 +11,12 @@ $('#log-out-button').on('click', () => {
   authMaster.logOut();
 });
 
-lock.on('authenticated', (authResult) => {
-  authMaster.handleAuthentication(authResult);
-  activateLoggedInDisplay();
-})
+  if (lock) {
+    lock.on('authenticated', (authResult) => {
+      authMaster.handleAuthentication(authResult);
+      activateLoggedInDisplay();
+    })
+  }
 
 const token = localStorage.getItem('accessToken');
 if (token) {
