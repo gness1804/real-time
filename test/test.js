@@ -15,8 +15,17 @@ describe('GET /', () => {
     request(app)
       .get('/')
       .end(function(error, result) {
-        res.should.have.status(2000);
+        res.should.have.status(200);
         done();
-      })
+      });
+  });
+
+  it('should fail when given an invalid path', () => {
+    request(app)
+      .get('/foo')
+      .end(function(error, result) {
+        res.should.have.status(404);
+        done();
+      });
   });
 });
