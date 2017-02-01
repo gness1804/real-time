@@ -29,3 +29,14 @@ describe('GET /', () => {
       });
   });
 });
+
+describe('/question', () => {
+  it('should be a valid path', () => {
+    request(app)
+      .get('/question')
+      .end(function(error, result) {
+        res.should.have.status(200);
+        done();
+      });
+  });
+});
