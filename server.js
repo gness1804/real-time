@@ -82,10 +82,9 @@ app.post('/question', (request, response) => {
   });
 });
 
-//hide the question answers and submit button unless user is logged in
 app.get('/question', (request, response) => {
 
-  response.send(`
+  const questionPageHTML = `
     <html lang="en">
       <head>
         <meta charset="utf-8">
@@ -137,7 +136,9 @@ app.get('/question', (request, response) => {
       </body>
     </html>
 
-  `);
+  `;
+
+  response.send(questionPageHTML);
 });
 
 io.on('connection', (socket) => {

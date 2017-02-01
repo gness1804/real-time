@@ -51,10 +51,19 @@ const displayVotesOnPage = (votes) => {
 
 const displayTallyOfVoteChoices = (votes) => {
   let voteCount = [];
+  let voteObj = {};
   votes.forEach((vote) => {
     voteCount.push(vote.vote)
   });
-  console.log(voteCount);
+  for (var i = 0; i < voteCount.length; i++) {
+    console.log(voteCount[i]);
+    // if (!voteObj.voteCount[i]) {
+    //   voteObj.voteCount[i] = 0;
+    // } else {
+    //   voteObj.voteCount[i] = voteObj.voteCount[i] + 1;
+    // }
+  }
+  console.log(voteObj);
 }
 
 socket.on('allVotes', (votes) => {
