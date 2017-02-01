@@ -106,7 +106,8 @@ app.get('/question', (request, response) => {
 
         <section id="question-container">
 
-        <p id="user-notification"></p>
+        <p id="notification-logged-in-or-out"></p>
+        <img id="user-photo-main"/>
 
         <h2>${app.locals.question.title}</h2>
 

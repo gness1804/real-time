@@ -17,14 +17,14 @@ const activateLoggedOutDisplay = () => {
 }
 
 const setLoggedInMode = () => {
-  // document.querySelector('#user-notification').innerText = `Hello, ${profile.name}`;
+  document.querySelector('#notification-logged-in-or-out').innerText = `Hello, ${profile.name}`;
   githubId = profile.userId;
   githubPhoto = profile.picture;
   $('#user-photo-main').attr("src", profile.picture);
 }
 
 const setLoggedOutMode = () => {
-  // document.querySelector('#user-notification').innerText = 'You are logged out.';
+  document.querySelector('#notification-logged-in-or-out').innerText = 'You are logged out.';
   githubId = '';
   githubPhoto = '';
 }
