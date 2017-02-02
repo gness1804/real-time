@@ -5,12 +5,20 @@ const driver = new webdriver.Builder()
   .forBrowser('chrome')
   .build();
 
-test.describe('Input fields', function () {
+test.describe('Landing page', function () {
   this.timeout(15000);
 
   test.beforeEach(function() {
       driver.get('http://localhost:3000');
     });
+
+  test.it('application should serve the landing page when user visits root url', function () {
+    driver.findElement({tagName: 'h1'}).then(function (title) {
+     return title.getText()
+   }).then(function (text) {
+     assert.strictEqual(text, 'Real Time: Polling Done Right');
+   })
+  });
 
   test.it('application should render five input fields on landing page', function () {
 
@@ -56,4 +64,8 @@ test.describe('Input fields', function () {
    //add info in one or two input fields but not all; submit should still fail
 
   });
+});
+
+test.describe('Question answer page', function () {
+
 });
