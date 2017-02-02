@@ -42,9 +42,13 @@ button:hover {
   margin: 36px 45px;
 }
 
+#landing-page-main-image {
+  height: 100px;
+}
+
 #create-question-wrapper h2 {
   font-size: 36px;
-  margin: 50px auto;
+  margin: 0 auto 30px auto;
 }
 
 #user-photo-main {
