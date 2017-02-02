@@ -61,7 +61,14 @@ test.describe('Landing page', function () {
      assert.strictEqual(text, 'Please enter in valid values for all fields.');
    })
 
-   //add info in one or two input fields but not all; submit should still fail
+   const questionField = driver.findElement({id: 'question-title-input'});
+   questionField.sendKeys('What does foo mean in programming?');
+
+   driver.findElement({id: 'user-notification'}).then(function (button) {
+    return button.getText()
+  }).then(function (text) {
+    assert.strictEqual(text, 'Please enter in valid values for all fields.');
+  })
 
   });
 });
