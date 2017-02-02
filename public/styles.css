@@ -1,5 +1,5 @@
 html {
-  background: linear-gradient(to bottom, rgb(222, 250, 251), rgb(243, 254, 239));
+  background-color: rgb(222, 250, 251);
   background-repeat: no-repeat;
   background-size: 100vw 100vw;
   font-family: 'Pangolin', cursive;
@@ -85,4 +85,8 @@ input {
   height: 100px;
   margin: 15px auto;
   max-width: 100px;
+}
+
+#vote-count-total-display {
+  margin-bottom: 30px;
 }
