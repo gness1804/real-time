@@ -5,34 +5,34 @@ const driver = new webdriver.Builder()
   .forBrowser('chrome')
   .build();
 
+  function sendNewQuestion() {
+    const questionField = driver.findElement({id: 'question-title-input'});
+    const firstChoiceInput = driver.findElement({id: 'first-choice-input'});
+    const secondChoiceInput = driver.findElement({id: 'second-choice-input'});
+    const thirdChoiceInput = driver.findElement({id: 'third-choice-input'});
+    const fourthChoiceInput = driver.findElement({id: 'fourth-choice-input'});
+    const submitButton = driver.findElement({id: 'submit-question'});
+
+    questionField.sendKeys('What does foo mean in programming?');
+    firstChoiceInput.sendKeys('An error message.');
+    secondChoiceInput.sendKeys('A placeholder or dummy name.');
+    thirdChoiceInput.sendKeys('Another term for email.');
+    fourthChoiceInput.sendKeys('A term for the keyboard.');
+    submitButton.click();
+
+    driver.findElement({id: 'user-notification'}).then(function (line) {
+     return line.getText()
+   }).then(function (text) {
+     assert.strictEqual(text, 'You have successfully submitted a question.');
+   })
+  }
+
 test.describe('Landing page', function () {
   this.timeout(15000);
 
   test.beforeEach(function() {
       driver.get('http://localhost:3000');
     });
-
-    function sendNewQuestion() {
-      const questionField = driver.findElement({id: 'question-title-input'});
-      const firstChoiceInput = driver.findElement({id: 'first-choice-input'});
-      const secondChoiceInput = driver.findElement({id: 'second-choice-input'});
-      const thirdChoiceInput = driver.findElement({id: 'third-choice-input'});
-      const fourthChoiceInput = driver.findElement({id: 'fourth-choice-input'});
-      const submitButton = driver.findElement({id: 'submit-question'});
-
-      questionField.sendKeys('What does foo mean in programming?');
-      firstChoiceInput.sendKeys('An error message.');
-      secondChoiceInput.sendKeys('A placeholder or dummy name.');
-      thirdChoiceInput.sendKeys('Another term for email.');
-      fourthChoiceInput.sendKeys('A term for the keyboard.');
-      submitButton.click();
-
-      driver.findElement({id: 'user-notification'}).then(function (line) {
-       return line.getText()
-     }).then(function (text) {
-       assert.strictEqual(text, 'You have successfully submitted a question.');
-     })
-    }
 
   test.it('application should serve the landing page when user visits root url', function () {
     driver.findElement({tagName: 'h1'}).then(function (title) {
@@ -102,5 +102,18 @@ test.describe('Landing page', function () {
 });
 
 test.describe('Question answer page', function () {
+  test.it('question answer page should be visitable without error when there is a question', function () {
+    sendNewQuestion();
+
+    driver.get('http://localhost:3000/question');
+    driver.navigate().refresh();
+
+    driver.findElement({tagName: 'h1'}).then(function (title) {
+     return title.getText()
+   }).then(function (text) {
+     assert.strictEqual(text, 'Real Time: Polling Done Right');
+   })
+
+  });
 
 });
