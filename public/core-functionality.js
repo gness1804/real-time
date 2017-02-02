@@ -23,7 +23,8 @@ $('#submit-question').on("click", () => {
   const oneOrMoreFieldIsEmpty = !questionTitle.val() || !firstChoiceTitle.val() || !secondChoiceTitle.val() || !thirdChoiceTitle.val() || !fourthChoiceTitle.val();
 
   if (oneOrMoreFieldIsEmpty) {
-    document.querySelector('#user-notification').innerText = 'Please enter in valid values for all fields.'
+    document.querySelector('#user-notification').innerText = 'Please enter in valid values for all fields.';
+    document.querySelector('#user-notification').styles.color = '#F00';
     return;
   }
 

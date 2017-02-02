@@ -32,7 +32,6 @@ app.locals.question = {
   questionId: null,
   title: '',
   choices: [],
-  // creatorId: null,
   responses: [],
 };
 
@@ -54,6 +53,7 @@ app.get('/login', (request, response) => {
 
 app.post('/question', (request, response) => {
   const question = request.body;
+  app.locals.question.choices = [];
 
   app.locals.question.questionId = request.body.questionId;
   app.locals.question.title = request.body.title;
@@ -75,7 +75,6 @@ app.post('/question', (request, response) => {
       choiceName: request.body.fourthChoice,
     }
   );
-  // app.locals.question.creatorId = request.body.userId;
 
   response.json({
     question: app.locals.question,
@@ -121,8 +120,8 @@ app.get('/question', (request, response) => {
 
         <p id="users-count-display"></p>
         <section id="vote-count-total-display"></section>
-        <section id="vote-each-user-display"></section>
         <section id="vote-tally-display"></section>
+        <section id="vote-each-user-display"></section>
 
         </section>
 
