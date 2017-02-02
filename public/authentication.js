@@ -1,6 +1,6 @@
 const socket = io();
 
-const profile = JSON.parse(localStorage.getItem('profile'));
+let profile = JSON.parse(localStorage.getItem('profile'));
 const questionTitle = $('#question-title-input');
 const firstChoiceTitle = $('#first-choice-input');
 const secondChoiceTitle = $('#second-choice-input');

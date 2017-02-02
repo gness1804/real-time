@@ -28,7 +28,7 @@ function sendNewQuestion() {
 }
 
 function fakeLogin() {
-  driver.executeScript("activateLoggedInDisplay()");
+  driver.executeScript("profile = { name: 'Graham', userId: 123456, picture: 'http://cdn.akc.org/HomepageImages/Cairn_Terrier2_Hallsworth_head.jpg'}; activateLoggedInDisplay(); setLoggedInMode()");
 }
 
 function goToAnswerPage() {
