@@ -27,10 +27,14 @@ function sendNewQuestion() {
  })
 }
 
+function fakeLogin() {
+  driver.executeScript("activateLoggedInDisplay()");
+}
+
 function goToAnswerPage() {
   sendNewQuestion();
   driver.get('http://localhost:3000/question');
-  driver.executeScript("activateLoggedInDisplay()");
+  fakeLogin();
 }
 
 test.describe('Landing page', function () {
