@@ -42,3 +42,7 @@ if (token) {
   activateLoggedOutDisplay();
   setLoggedOutMode();
 }
+
+if (typeof window === 'undefined') {
+  module.exports = clearInputFields();
+}

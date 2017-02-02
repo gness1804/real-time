@@ -73,14 +73,7 @@ describe('/question', () => {
 
 describe('clearInputFields', () => {
 
-  jsdom()
-
-   before(function () {
-       $ = require('jquery');
-   });
-
   it('should be a function', () => {
-    // const clearInputFields = clearInputFields();
     assert.isFunction(clearInputFields);
   });
 });

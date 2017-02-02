@@ -10,14 +10,19 @@ let githubId;
 let githubPhoto;
 let pagePassword;
 
-(function getCredentials(){
-  axios.get('/login').then((response) => {
-    loginId = response.data.loginID;
-    domain = response.data.domain;
-    pagePassword = response.data.pagePassword;
-    authenticateUser(loginId, domain);
-  }).catch(console.error('There was a problem retrieving your credentials.'));
-})()
+(
+  () => {
+    axios.get('/login').then((response) => {
+      loginId = response.data.loginID;
+      domain = response.data.domain;
+      pagePassword = response.data.pagePassword;
+      authenticateUser(loginId, domain);
+    }).catch(console.error('There was a problem retrieving your credentials.'));
+  }
+)()
+
+// (function getCredentials(){
+// })()
 
 const authenticateUser = (loginId, domain) => {
 
