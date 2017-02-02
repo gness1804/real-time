@@ -5,14 +5,13 @@ const assert = require('assert');
 const request = require('supertest');
 const express = require('express');
 const app = express();
-// const setLoggedInMode = require('../public/display');
 
 const expect = chai.expect();
 const should = chai.should();
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 
-describe('GET /', () => {
+describe('GET /', function () {
   it('should return a 200 status message', () => {
     request(app)
       .get('/')
@@ -22,7 +21,7 @@ describe('GET /', () => {
       });
   });
 
-  it('should fail when given an invalid path', () => {
+  it('should fail when given an invalid path', function () {
     request(app)
       .get('/foo')
       .end(function(error, result) {
@@ -32,8 +31,8 @@ describe('GET /', () => {
   });
 });
 
-describe('/question', () => {
-  it('should be a valid path', () => {
+describe('/question', function () {
+  it('should be a valid path', function () {
     request(app)
       .get('/question')
       .end(function(error, result) {
@@ -42,7 +41,7 @@ describe('/question', () => {
       });
   });
 
-  it('response should be a string', () => {
+  it('response should be a string', function () {
     request(app)
       .get('/question')
       .end(function(error, result) {
@@ -51,7 +50,7 @@ describe('/question', () => {
       });
   });
 
-  it('should add a new question when the post request is made', () => {
+  it('should add a new question when the post request is made', function () {
     request(app)
       .post('/question')
       .send({
@@ -70,12 +69,3 @@ describe('/question', () => {
       });
   });
 });
-
-///unit tests
-
-// describe('setLoggedInMode', () => {
-//
-//   it('should be a function', () => {
-//     assert.isFunction(setLoggedInMode());
-//   });
-// });
