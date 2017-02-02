@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A polling application",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "./node_modules/mocha/bin/mocha"
   },
   "author": "Graham Nessler",
@@ -33,6 +34,7 @@
     "mocha-loader": "^1.0.0",
     "node-libs-browser": "^1.0.0",
     "node-sass": "^3.10.0",
+    "nodemon": "^1.11.0",
     "pg": "^6.1.2",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
