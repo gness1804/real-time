@@ -21,9 +21,6 @@ let pagePassword;
   }
 )()
 
-// (function getCredentials(){
-// })()
-
 const authenticateUser = (loginId, domain) => {
 
   const lock = new Auth0Lock(loginId, domain, {

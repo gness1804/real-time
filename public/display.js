@@ -1,3 +1,10 @@
+const setLoggedInMode = () => {
+  document.querySelector('#notification-logged-in-or-out').innerText = `Hello, ${profile.name}`;
+  githubId = profile.userId;
+  githubPhoto = profile.picture;
+  $('#user-photo-main').attr("src", profile.picture);
+}
+
 const token = localStorage.getItem('accessToken');
 
 const activateLoggedInDisplay = () => {
@@ -12,13 +19,6 @@ const activateLoggedOutDisplay = () => {
   $('#log-in-button').show();
   $('#log-out-button').hide();
   $('#question-container').hide();
-}
-
-const setLoggedInMode = () => {
-  document.querySelector('#notification-logged-in-or-out').innerText = `Hello, ${profile.name}`;
-  githubId = profile.userId;
-  githubPhoto = profile.picture;
-  $('#user-photo-main').attr("src", profile.picture);
 }
 
 const setLoggedOutMode = () => {
@@ -41,8 +41,4 @@ if (token) {
 } else {
   activateLoggedOutDisplay();
   setLoggedOutMode();
-}
-
-if (typeof window === 'undefined') {
-  module.exports = clearInputFields();
 }
