@@ -1,9 +1,12 @@
 {
   "name": "real-time",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.2.2"
+  },
   "description": "A polling application",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "test": "./node_modules/mocha/bin/mocha"
   },
   "author": "Graham Nessler",
