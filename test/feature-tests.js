@@ -1,22 +1,31 @@
-var assert    = require('assert');
-var webdriver = require('selenium-webdriver');
-var test = require('selenium-webdriver/testing');
-var driver = new webdriver.Builder()
+const assert = require('assert');
+const webdriver = require('selenium-webdriver');
+const test = require('selenium-webdriver/testing');
+const driver = new webdriver.Builder()
   .forBrowser('chrome')
   .build();
 
 test.describe('Input fields', () => {
-  //  this.timeout(15000)
 
-  test.beforeEach(function() {
+  test.beforeEach(() => {
       driver.get('http://localhost:3000');
     });
 
   test.it('application should render five input fields on landing page', () => {
 
-    var inputFields = driver.findElements({tagName: 'input'}).then(function (select) {
+    const inputFields = driver.findElements({tagName: 'input'}).then((select) => {
       assert.equal(select.length, 5)
     })
+
+  });
+
+  test.it('input fields should render with correct text', () => {
+
+    driver.findElement({id: 'question-title-input'}).then((button) => {
+     return button.getAttribute('placeholder')
+   }).then((text) => {
+     assert.strictEqual(text, 'Question Title');
+   })
 
   });
 });
