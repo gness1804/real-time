@@ -20,14 +20,14 @@ $('#submit-question').on("click", () => {
     return;
   }
 
-  const passwordPrompt = prompt('Please enter the password to submit a question.');
+  // const passwordPrompt = prompt('Please enter the password to submit a question.');
 
-  if (passwordPrompt === pagePassword) {
+  // if (passwordPrompt === pagePassword) {
     postNewQuestion();
     clearInputFields();
-  } else {
-    document.querySelector('#user-notification').innerText = 'Oops, wrong password.'
-  }
+  // } else {
+  //   document.querySelector('#user-notification').innerText = 'Oops, wrong password.'
+  // }
 });
 
 socket.on('usersCount', (count) => {

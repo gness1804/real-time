@@ -64,13 +64,37 @@ test.describe('Landing page', function () {
    const questionField = driver.findElement({id: 'question-title-input'});
    questionField.sendKeys('What does foo mean in programming?');
 
-   driver.findElement({id: 'user-notification'}).then(function (button) {
-    return button.getText()
+   driver.findElement({id: 'user-notification'}).then(function (line) {
+    return line.getText()
   }).then(function (text) {
     assert.strictEqual(text, 'Please enter in valid values for all fields.');
   })
 
   });
+
+  test.it('submit button should trigger success message when all five input fields have text in them', function () {
+
+    const questionField = driver.findElement({id: 'question-title-input'});
+    const firstChoiceInput = driver.findElement({id: 'first-choice-input'});
+    const secondChoiceInput = driver.findElement({id: 'second-choice-input'});
+    const thirdChoiceInput = driver.findElement({id: 'third-choice-input'});
+    const fourthChoiceInput = driver.findElement({id: 'fourth-choice-input'});
+    const submitButton = driver.findElement({id: 'submit-question'});
+
+    questionField.sendKeys('What does foo mean in programming?');
+    firstChoiceInput.sendKeys('An error message.');
+    secondChoiceInput.sendKeys('A placeholder or dummy name.');
+    thirdChoiceInput.sendKeys('Another term for email.');
+    fourthChoiceInput.sendKeys('A term for the keyboard.');
+    submitButton.click();
+
+    driver.findElement({id: 'user-notification'}).then(function (line) {
+     return line.getText()
+   }).then(function (text) {
+     assert.strictEqual(text, 'You have successfully submitted a question.');
+   })
+
+  })
 });
 
 test.describe('Question answer page', function () {
