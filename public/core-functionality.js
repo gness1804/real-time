@@ -36,6 +36,9 @@ socket.on('usersCount', (count) => {
 
 const buttons = document.querySelectorAll('.answer-button');
 
+//refactor the below into an IIFE 
+
+
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener('click', function () {
     socket.send('vote', {
