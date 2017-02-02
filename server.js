@@ -48,6 +48,7 @@ app.get('/login', (request, response) => {
   response.send({
     loginID: process.env.AUTH0_CLIENT_ID,
     domain: process.env.AUTH0_DOMAIN,
+    pagePassword: process.env.PAGE_PASSWORD,
   });
 });
 

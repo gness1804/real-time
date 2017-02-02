@@ -27,6 +27,14 @@ const setLoggedOutMode = () => {
   githubPhoto = '';
 }
 
+const clearInputFields = () => {
+  document.querySelector('#question-title-input').value = '';
+  document.querySelector('#first-choice-input').value = '';
+  document.querySelector('#second-choice-input').value = '';
+  document.querySelector('#third-choice-input').value = '';
+  document.querySelector('#fourth-choice-input').value = '';
+};
+
 if (token) {
   activateLoggedInDisplay();
   setLoggedInMode();

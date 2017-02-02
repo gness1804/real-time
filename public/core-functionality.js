@@ -10,14 +10,6 @@ const postNewQuestion = () => {
   document.querySelector('#user-notification').innerText = 'You have successfully submitted a question.'
 }
 
-const clearInputFields = () => {
-  document.querySelector('#question-title-input').value = '';
-  document.querySelector('#first-choice-input').value = '';
-  document.querySelector('#second-choice-input').value = '';
-  document.querySelector('#third-choice-input').value = '';
-  document.querySelector('#fourth-choice-input').value = '';
-}
-
 $('#submit-question').on("click", () => {
 
   const oneOrMoreFieldIsEmpty = !questionTitle.val() || !firstChoiceTitle.val() || !secondChoiceTitle.val() || !thirdChoiceTitle.val() || !fourthChoiceTitle.val();
@@ -28,9 +20,14 @@ $('#submit-question').on("click", () => {
     return;
   }
 
-  postNewQuestion();
-  clearInputFields();
+  const passwordPrompt = prompt('Please enter the password to submit a question.');
 
+  if (passwordPrompt === pagePassword) {
+    postNewQuestion();
+    clearInputFields();
+  } else {
+    document.querySelector('#user-notification').innerText = 'Oops, wrong password.'
+  }
 });
 
 socket.on('usersCount', (count) => {
@@ -38,6 +35,9 @@ socket.on('usersCount', (count) => {
 });
 
 const buttons = document.querySelectorAll('.answer-button');
+
+//refactor the below into an IIFE 
+
 
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener('click', function () {
