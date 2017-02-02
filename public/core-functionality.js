@@ -85,3 +85,5 @@ socket.on('allVotes', (votes) => {
   displayVotesOnPage(votes);
   displayTallyOfVoteChoices(votes);
 });
+
+module.exports = clearInputFields();

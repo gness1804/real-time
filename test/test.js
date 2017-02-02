@@ -1,9 +1,11 @@
-'use strict';
+const jsdom = require('mocha-jsdom');
+
 const chai = require('chai');
 const assert = require('assert');
 const request = require('supertest');
 const express = require('express');
 const app = express();
+const clearInputFields = require('../public/core-functionality');
 
 const expect = chai.expect();
 const should = chai.should();
@@ -66,5 +68,19 @@ describe('/question', () => {
         result.should.be.json;
         done();
       });
+  });
+});
+
+describe('clearInputFields', () => {
+
+  jsdom()
+
+   before(function () {
+       $ = require('jquery');
+   });
+
+  it('should be a function', () => {
+    // const clearInputFields = clearInputFields();
+    assert.isFunction(clearInputFields);
   });
 });
