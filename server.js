@@ -112,13 +112,13 @@ app.get('/question', (request, response) => {
 
         <h2>${app.locals.question.title}</h2>
 
-        <button id="${app.locals.question.choices[0].choiceId}" class="answer-button">${app.locals.question.choices[0].choiceName}</button>
+        <button id="${app.locals.question.choices[0].choiceId}" class="answer-button first-answer">${app.locals.question.choices[0].choiceName}</button>
 
-        <button id="${app.locals.question.choices[1].choiceId}" class="answer-button">${app.locals.question.choices[1].choiceName}</button>
+        <button id="${app.locals.question.choices[1].choiceId}" class="answer-button second-answer">${app.locals.question.choices[1].choiceName}</button>
 
-        <button id="${app.locals.question.choices[2].choiceId}" class="answer-button">${app.locals.question.choices[2].choiceName}</button>
+        <button id="${app.locals.question.choices[2].choiceId}" class="answer-button third-answer">${app.locals.question.choices[2].choiceName}</button>
 
-        <button id="${app.locals.question.choices[3].choiceId}" class="answer-button">${app.locals.question.choices[3].choiceName}</button>
+        <button id="${app.locals.question.choices[3].choiceId}" class="answer-button fourth-answer">${app.locals.question.choices[3].choiceName}</button>
 
         <p id="users-count-display"></p>
         <section id="vote-count-total-display"></section>

@@ -144,4 +144,19 @@ test.describe('Question answer page', function () {
     });
   });
 
+  test.it('clicking a vote button on the answer page should increase the total vote count by one', function () {
+    goToAnswerPage();
+
+    const choice = driver.findElement({className: 'first-answer'});
+
+    choice.click();
+    choice.click();
+
+    driver.findElement({id: 'vote-count-total-display'}).then(function (title) {
+     return title.getText()
+   }).then(function (text) {
+     assert.strictEqual(text, 'Total votes: 2');
+   })
+  });
+
 });
