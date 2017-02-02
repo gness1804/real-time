@@ -28,9 +28,12 @@ $('#submit-question').on("click", () => {
     return;
   }
 
-  postNewQuestion();
-  clearInputFields();
+  const passwordPrompt = prompt('Please enter the password to submit a question.');
 
+  if (passwordPrompt === pagePassword) {
+    postNewQuestion();
+    clearInputFields();
+  }
 });
 
 socket.on('usersCount', (count) => {
