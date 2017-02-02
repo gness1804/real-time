@@ -157,9 +157,13 @@ test.describe('Question answer page', function () {
      assert.strictEqual(text, 'Hello, Puck');
    })
 
-  });
+   driver.findElement({id: 'user-photo-main'}).then(function (photo) {
+    return photo.getAttribute('src')
+  }).then(function (link) {
+    assert.strictEqual(link, 'http://cdn.akc.org/HomepageImages/Cairn_Terrier2_Hallsworth_head.jpg');
+  })
 
-  //do password workaround for landing page!
+  });
 
   test.it('clicking a vote button on the answer page should increase the total vote count by one', function () {
     goToAnswerPage();

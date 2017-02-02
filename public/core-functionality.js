@@ -21,7 +21,7 @@ $('#submit-question').on("click", () => {
   }
 
   // const passwordPrompt = prompt('Please enter the password to submit a question.');
-
+  // 
   // if (passwordPrompt === pagePassword) {
     postNewQuestion();
     clearInputFields();
