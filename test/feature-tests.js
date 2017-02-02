@@ -27,6 +27,12 @@ const driver = new webdriver.Builder()
    })
   }
 
+  function goToAnswerPage() {
+    sendNewQuestion();
+    driver.get('http://localhost:3000/question');
+    driver.navigate().refresh();
+  }
+
 test.describe('Landing page', function () {
   this.timeout(15000);
 
@@ -102,11 +108,15 @@ test.describe('Landing page', function () {
 });
 
 test.describe('Question answer page', function () {
-  test.it('question answer page should be visitable without error when there is a question', function () {
-    sendNewQuestion();
 
-    driver.get('http://localhost:3000/question');
-    driver.navigate().refresh();
+  this.timeout(15000);
+
+  test.beforeEach(function() {
+      driver.get('http://localhost:3000');
+    });
+
+  test.it('question answer page should be visitable without error when there is a question', function () {
+    goToAnswerPage();
 
     driver.findElement({tagName: 'h1'}).then(function (title) {
      return title.getText()
