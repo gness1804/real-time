@@ -30,7 +30,7 @@ function sendNewQuestion() {
 function goToAnswerPage() {
   sendNewQuestion();
   driver.get('http://localhost:3000/question');
-  // driver.navigate().refresh();
+  driver.executeScript("activateLoggedInDisplay()");
 }
 
 test.describe('Landing page', function () {
@@ -129,13 +129,19 @@ test.describe('Question answer page', function () {
   test.it('question answer page should display the title of the current question', function () {
     goToAnswerPage();
 
-    driver.executeScript("activateLoggedInDisplay()")
-
     driver.findElement({tagName: 'h2'}).then(function (title) {
      return title.getText()
    }).then(function (text) {
      assert.strictEqual(text, 'What does foo mean in programming?');
    })
+  });
+
+  test.it('answer page should display four buttons', function () {
+    goToAnswerPage();
+
+    const buttons = driver.findElements({className: 'answer-button'}).then(function (select) {
+      assert.strictEqual(select.length, 4);
+    });
   });
 
 });
