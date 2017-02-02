@@ -28,7 +28,7 @@ function sendNewQuestion() {
 }
 
 function fakeLogin() {
-  driver.executeScript("profile = { name: 'Graham', userId: 123456, picture: 'http://cdn.akc.org/HomepageImages/Cairn_Terrier2_Hallsworth_head.jpg'}; activateLoggedInDisplay(); setLoggedInMode()");
+  driver.executeScript("profile = { name: 'Puck', userId: 123456, picture: 'http://cdn.akc.org/HomepageImages/Cairn_Terrier2_Hallsworth_head.jpg'}; activateLoggedInDisplay(); setLoggedInMode()");
 }
 
 function goToAnswerPage() {
@@ -147,6 +147,19 @@ test.describe('Question answer page', function () {
       assert.strictEqual(select.length, 4);
     });
   });
+
+  test.it('answer page should display user name and photo', function () {
+    goToAnswerPage();
+
+    driver.findElement({id: 'notification-logged-in-or-out'}).then(function (line) {
+     return line.getText()
+   }).then(function (text) {
+     assert.strictEqual(text, 'Hello, Puck');
+   })
+
+  });
+
+  //do password workaround for landing page!
 
   test.it('clicking a vote button on the answer page should increase the total vote count by one', function () {
     goToAnswerPage();
