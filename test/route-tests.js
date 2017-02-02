@@ -5,7 +5,7 @@ const assert = require('assert');
 const request = require('supertest');
 const express = require('express');
 const app = express();
-const setLoggedInMode = require('../public/display');
+// const setLoggedInMode = require('../public/display');
 
 const expect = chai.expect();
 const should = chai.should();
@@ -75,9 +75,9 @@ describe('/question', () => {
 
 ///unit tests
 
-describe('setLoggedInMode', () => {
-
-  it('should be a function', () => {
-    assert.isFunction(setLoggedInMode());
-  });
-});
+// describe('setLoggedInMode', () => {
+//
+//   it('should be a function', () => {
+//     assert.isFunction(setLoggedInMode());
+//   });
+// });
