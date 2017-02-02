@@ -12,8 +12,6 @@ const should = chai.should();
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 
-///route tests
-
 describe('GET /', () => {
   it('should return a 200 status message', () => {
     request(app)
