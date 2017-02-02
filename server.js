@@ -54,6 +54,7 @@ app.get('/login', (request, response) => {
 app.post('/question', (request, response) => {
   const question = request.body;
   app.locals.question.choices = [];
+  app.locals.question.responses = [];
 
   app.locals.question.questionId = request.body.questionId;
   app.locals.question.title = request.body.title;
