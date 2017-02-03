@@ -66,9 +66,8 @@ const authenticateUser = (loginId, domain) => {
 
   lock.on('authenticated', (authResult) => {
     authMaster.handleAuthentication(authResult);
+    window.location.reload();
     activateLoggedInDisplay();
-    setTimeout(() => {
-      setLoggedInMode();
-    }, 8000);
+    setLoggedInMode();
   })
 }
