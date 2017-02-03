@@ -7,7 +7,12 @@ const postNewQuestion = () => {
     thirdChoice: thirdChoiceTitle.val(),
     fourthChoice: fourthChoiceTitle.val(),
   });
-  document.querySelector('#user-notification').innerText = 'You have successfully submitted a question.'
+  document.querySelector('#user-notification').innerHTML = `
+  <div>
+  <p>
+  You have successfully submitted a question. To respond to the question, visit <a href="https://real-time-gness.herokuapp.com/question">https://real-time-gness.herokuapp.com/question</a>
+  .</p>
+  `
 }
 
 $('#submit-question').on("click", () => {
