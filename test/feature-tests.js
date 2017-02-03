@@ -193,6 +193,12 @@ test.describe('Question answer page', function () {
      assert.strictEqual(link, 'http://cdn.akc.org/HomepageImages/Cairn_Terrier2_Hallsworth_head.jpg');
    })
 
+   driver.findElement({id: 'each-vote-user-vote'}).then(function (line) {
+    return line.getText()
+  }).then(function (text) {
+    assert.strictEqual(text, 'vote: A placeholder or dummy name.');
+  })
+
   });
 
 });

@@ -55,7 +55,7 @@ const displayVotesOnPage = (votes) => {
     $('#vote-each-user-display').append(`
       <div class="each-vote">
         <img id="each-vote-user-image" src="${vote.githubPhoto}"/>
-        <p>vote: ${vote.vote}</p>
+        <p id="each-vote-user-vote">vote: ${vote.vote}</p>
       </div>
     `);
   });
