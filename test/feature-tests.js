@@ -180,4 +180,19 @@ test.describe('Question answer page', function () {
    })
   });
 
+  test.it('clicking a vote button on the answer page should render a box lower on the page with the corresponding vote and the user\'s picture', function () {
+    goToAnswerPage();
+
+    const choice = driver.findElement({className: 'second-answer'});
+
+    choice.click();
+
+    driver.findElement({id: 'each-vote-user-image'}).then(function (pic) {
+     return pic.getAttribute('src')
+   }).then(function (link) {
+     assert.strictEqual(link, 'http://cdn.akc.org/HomepageImages/Cairn_Terrier2_Hallsworth_head.jpg');
+   })
+
+  });
+
 });
