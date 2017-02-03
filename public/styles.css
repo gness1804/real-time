@@ -86,9 +86,10 @@ input:hover {
 
 .each-vote {
   border: 1px solid black;
-  height: 100px;
+  height: auto;
   margin: 15px auto;
   max-width: 100px;
+  padding: 10px;
 }
 
 #vote-count-total-display {
