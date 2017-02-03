@@ -23,7 +23,7 @@ function sendNewQuestion() {
   driver.findElement({id: 'user-notification'}).then(function (line) {
    return line.getText()
  }).then(function (text) {
-   assert.strictEqual(text, 'You have successfully submitted a question.');
+   assert.strictEqual(text, 'You have successfully submitted a question. To respond to the question, visit https://real-time-gness.herokuapp.com/question .');
  })
 }
 
