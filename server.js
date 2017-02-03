@@ -20,9 +20,9 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// if (!process.env.AUTH0_CLIENT_ID || !process.env.AUTH0_SECRET) {
-//   throw new Error('Make sure you have AUTH0_CLIENT_ID and AUTH0_SECRET in your .env file');
-// }
+if (!process.env.AUTH0_CLIENT_ID || !process.env.AUTH0_SECRET) {
+  throw new Error('Make sure you have AUTH0_CLIENT_ID and AUTH0_SECRET in your .env file');
+}
 
 app.set('port', process.env.PORT || 3000);
 
